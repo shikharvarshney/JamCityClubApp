@@ -5,7 +5,7 @@ A serverless web chat built using AWS Lambda, AWS IoT (for WebSockets), SES and 
 
 The architecture of this application is described in this Google Doc:
 
-- [Jam City Club Chat App Architecture](https://docs.google.com/document/d/1dDcOLEzbkPxe8F148qA3GlMMOTfMTBNsQk4_VwMf8kw/edit)
+- [Jam City Club Chat App Architecture](https://varshneyyshikhar.s3.amazonaws.com/Project+proposal.pdf)
 
 
 ### Prerequisites
