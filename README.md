@@ -26,7 +26,7 @@ Choice. Preferably
 VSCode
 ```
 
-## What all is there in this template?
+### Prerequisites
 
 ```Components deployed in the App``` are:-
 
@@ -36,6 +36,16 @@ VSCode
 4. ```AWS Lambda``` for basic chat implementation with the Trigger of AWS-IoT rules.
 5. ```IoT Rules``` explained in the architecture document.
 6. ```AWS-IoT Endpoint``` must be enabled for the region in which you are deploying your code.
+7. ```AWS SES``` to send emails to the users with the url of the chat club in that email.
+
+### Features
+
+1. ```Create your own clubs``` by just entering the name of the club.
+2. ```Invite members``` to your own club by just entering their email ids and an invite will be sent to them with the Club's Url.
+3. ```Chat``` with all the members of your club simultaneosuly in a group.
+4. ```List down all the clubs``` that have been created ( For the sake of simplicity, an entry for a club is only made in DB when a chat message has been publsihed in that club). I could have created a separate table for Clubs and then fetch the rows from there. But to demonstrate the functionality this is enough I guess.
+5. Each user entering his/her name is creating an identity in the Cognito Identity pool.
+
 
 ## Getting Started
 
@@ -54,7 +64,10 @@ A script is provided, `deploy.sh` which uses AWS CloudFormation to provision all
 
 Once the AWS resources have been provisioned, the script will print a URL to visit in your browser to see the demo.
 
-Before using this app:- ```You have to add your email Ids on SES console since I have not used a verified domain for this app. This will facilitate you to send emails to the people without a verified domain and test my functionality of inviting users to the Club.```
+### Common pitfalls to avoid
+Before using this app:- 
+1. ```You have to add your email Ids on SES console since I have not used a verified domain for this app. This will facilitate you to send emails to the people without a verified domain and test my functionality of inviting users to the Club.```
+2. In the 'www' folder in index.js file. I have directly kept the provision of keeping the acess key and secret key directly in the code. I know, this is not a good practice and I usually use the ```aws-sdk``` to create and SES object an then configure it to send Emails in my code. Since, i dont wamt to include any NPM package in here and just wanted to show that this functionality can work, I kept it that way. Thanks for understanding.
 
 NB: The Kinesis functionality has been disabled because it is billed per shard-hour. To enable it, edit `cloudformation/template.yaml` and uncomment the relevant lines before running `deploy.sh`.
 
