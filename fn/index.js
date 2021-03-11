@@ -55,7 +55,12 @@ const htmlContent = `
         </div>
         <div class="col-sm-2">
         <button  id="myButton2" onclick="inviteUser()" class="btn btn-primary mb-1">Invite your friends to Club</button>
-    </div>
+        </div>
+        <div class="col-sm-2">
+        <button  id="myButton3" onclick="showClubs()" class="btn btn-primary mb-1">Show All Clubs</button>
+        </div>
+        <p id="myList">
+        </p>
     </form>
 </div>
 `;

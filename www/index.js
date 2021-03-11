@@ -249,3 +249,24 @@ function inviteUser() {
       });
 }
 }
+
+function showClubs()
+{
+  var docClient = new AWS.DynamoDB.DocumentClient();    
+  var table = 'chat';    
+  var params = {
+    TableName : table,
+    ProjectionExpression: "room"
+  };
+docClient.scan(params, function(err, data) {
+    if (err) {
+        console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("We Get the data hurray...:", JSON.stringify(data.Items, null, 2));
+        data.Items.forEach(function(chat) {
+          console.log(chat.room);
+          document.getElementById("myList").innerHTML +=  " </br>" + chat.room.slice(1);
+       });
+    }
+});
+}
