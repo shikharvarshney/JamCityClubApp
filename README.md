@@ -68,7 +68,8 @@ Once the AWS resources have been provisioned, the script will print a URL to vis
 ### Common pitfalls to avoid
 Before using this app:- 
 1. ```You have to add your email Ids on SES console since I have not used a verified domain for this app. This will facilitate you to send emails to the people without a verified domain and test my functionality of inviting users to the Club.```
-2. In the 'www' folder in index.js file. I have directly kept the provision of keeping the acess key and secret key directly in the code. I know, this is not a good practice and I usually use the ```aws-sdk``` to create and SES object an then configure it to send Emails in my code. Since, i dont wamt to include any NPM package in here and just wanted to show that this functionality can work, I kept it that way. Thanks for understanding.
+2. In the 'www' folder in index.js file. I have directly kept the provision of keeping the acess key and secret key directly in the code (inviteUser function). 
+I know, this is not a good practice and I usually use the ```aws-sdk``` to create and SES object an then configure it to send Emails in my code. Since, i dont wamt to include any NPM package in here and just wanted to show that this functionality can work, I kept it that way. Thanks for understanding.
 3. Also, First I planned to use API Gateway + Lambda to send an invite Email, but to keep things simple I have written in SES code in the file only. If you need me to be, I can produce that deployment also to you.
 
 NB: The Kinesis functionality has been disabled because it is billed per shard-hour. To enable it, edit `cloudformation/template.yaml` and uncomment the relevant lines before running `deploy.sh`.
